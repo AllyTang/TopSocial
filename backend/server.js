@@ -1,7 +1,14 @@
-//TopSocial   git init
-//.gitignore(node_modules/)  backend
+const express = require("express");
+const cors = require("cors");
+const router = require("./routes/index");
+const app = express();
 
-//cd backend
-//npm init  server.js
-//npm i axios cors express json-server
-//npm i nodemon concurrently -D
+app.use(cors());
+app.use(express.json());
+
+app.use("/api", router);
+
+const PORT = 80;
+app.listen(PORT, function () {
+  console.log("server is running on http://localhost:80");
+});
